@@ -1,9 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'screens/classe_screen.dart';
+import 'screens/departement_screen.dart';
+import 'screens/etudiant_screen.dart';
+import 'screens/matiere_screen.dart';
+import 'screens/note_screen.dart';
+import 'screens/user_screen.dart';
 
 // Tableau de bord principal avec tiroir de navigation
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
+
+  Widget _drawerItem(
+    BuildContext context,
+    IconData icon,
+    String title,
+    Widget page,
+  ) {
+    return ListTile(
+      leading: Icon(icon, color: Colors.purple),
+      title: Text(title),
+      onTap: () {
+        Navigator.pop(context);
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (_) => page),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +65,43 @@ class Dashboard extends StatelessWidget {
                 ],
               ),
             ),
+            _drawerItem(
+              context,
+              Icons.apartment,
+              'Manage departements',
+              const DepartementScreen(),
+            ),
+            _drawerItem(
+              context,
+              Icons.groups,
+              'Manage groups',
+              const ClasseScreen(),
+            ),
+            _drawerItem(
+              context,
+              Icons.school,
+              'Manage students',
+              const EtudiantScreen(),
+            ),
+            _drawerItem(
+              context,
+              Icons.book,
+              'Manage matieres',
+              const MatiereScreen(),
+            ),
+            _drawerItem(
+              context,
+              Icons.grade,
+              'Manage notes',
+              const NoteScreen(),
+            ),
+            _drawerItem(
+              context,
+              Icons.person,
+              'Manage users',
+              const UserScreen(),
+            ),
+            const Divider(),
             ListTile(
               leading: const Icon(Icons.close, color: Colors.red),
               title: const Text('Close'),
