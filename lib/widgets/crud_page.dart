@@ -227,3 +227,4 @@ class _CrudPageState<T> extends State<CrudPage<T>> {
     );
   }
 }
+

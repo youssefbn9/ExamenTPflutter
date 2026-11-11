@@ -37,3 +37,4 @@ class ClassMat {
         'chsm': chsm,
       };
 }
+

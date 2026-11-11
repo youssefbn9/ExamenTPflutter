@@ -38,3 +38,4 @@ class Etudiant {
         if (classe != null) 'classe': {'codClass': classe!.codClass},
       };
 }
+

@@ -122,3 +122,4 @@ class ApiService {
 
   static Future<List<User>> getUsers() => getList('/users', User.fromJson);
 }
+

@@ -50,3 +50,4 @@ class AbsenceTotal {
         total: (json['total'] as num?)?.toDouble() ?? 0.0,
       );
 }
+

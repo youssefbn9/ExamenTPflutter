@@ -30,3 +30,4 @@ class Classe {
         if (departement != null) 'departement': {'codDept': departement!.codDept},
       };
 }
+

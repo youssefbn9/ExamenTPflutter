@@ -193,3 +193,4 @@ class _TotauxAbsencesScreenState extends State<TotauxAbsencesScreen> {
     );
   }
 }
+

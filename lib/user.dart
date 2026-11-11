@@ -20,3 +20,4 @@ class User {
         if (password != null) 'password': password,
       };
 }
+
