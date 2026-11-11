@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'screens/absence_screen.dart';
 import 'screens/classe_screen.dart';
 import 'screens/departement_screen.dart';
 import 'screens/etudiant_screen.dart';
@@ -94,6 +95,12 @@ class Dashboard extends StatelessWidget {
               Icons.grade,
               'Manage notes',
               const NoteScreen(),
+            ),
+            _drawerItem(
+              context,
+              Icons.event_busy,
+              'Gestion absences',
+              const AbsenceScreen(),
             ),
             _drawerItem(
               context,
