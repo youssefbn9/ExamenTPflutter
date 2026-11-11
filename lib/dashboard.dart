@@ -5,7 +5,9 @@ import 'screens/classe_screen.dart';
 import 'screens/departement_screen.dart';
 import 'screens/etudiant_screen.dart';
 import 'screens/matiere_screen.dart';
+import 'screens/moyennes_screen.dart';
 import 'screens/note_screen.dart';
+import 'screens/totaux_absences_screen.dart';
 import 'screens/user_screen.dart';
 
 // Tableau de bord principal avec tiroir de navigation
@@ -101,6 +103,18 @@ class Dashboard extends StatelessWidget {
               Icons.event_busy,
               'Gestion absences',
               const AbsenceScreen(),
+            ),
+            _drawerItem(
+              context,
+              Icons.show_chart,
+              'Totaux absences',
+              const TotauxAbsencesScreen(),
+            ),
+            _drawerItem(
+              context,
+              Icons.calculate,
+              'Moyennes',
+              const MoyennesScreen(),
             ),
             _drawerItem(
               context,
