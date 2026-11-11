@@ -54,7 +54,9 @@ class _NoteScreenState extends State<NoteScreen> {
 
         return [
           DropdownButtonFormField<String>(
-            value: values['nce'] as String?,
+            value: _etudiants.any((e) => e.nce == values['nce'])
+                ? values['nce'] as String?
+                : null,
             decoration: const InputDecoration(labelText: 'Etudiant'),
             items: _etudiants
                 .map(
@@ -70,7 +72,9 @@ class _NoteScreenState extends State<NoteScreen> {
           ),
           const SizedBox(height: 8),
           DropdownButtonFormField<String>(
-            value: values['codMat'] as String?,
+            value: _matieres.any((m) => m.codMat == values['codMat'])
+                ? values['codMat'] as String?
+                : null,
             decoration: const InputDecoration(labelText: 'Matiere'),
             items: _matieres
                 .map(

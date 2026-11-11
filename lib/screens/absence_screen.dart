@@ -119,7 +119,9 @@ class _AbsenceScreenState extends State<AbsenceScreen> {
                 ),
                 const SizedBox(height: 8),
                 DropdownButtonFormField<String>(
-                  value: codMat,
+                  value: _matieres.any((m) => m.codMat == codMat)
+                      ? codMat
+                      : null,
                   decoration: const InputDecoration(labelText: 'Matiere'),
                   items: _matieres
                       .map(

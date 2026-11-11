@@ -108,7 +108,9 @@ class _EtudiantScreenState extends State<EtudiantScreen> {
           ),
           const SizedBox(height: 8),
           DropdownButtonFormField<String>(
-            value: values['codClass'] as String?,
+            value: _classes.any((c) => c.codClass == values['codClass'])
+                ? values['codClass'] as String?
+                : null,
             decoration: const InputDecoration(labelText: 'Classe'),
             items: _classes
                 .map(

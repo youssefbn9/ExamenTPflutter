@@ -63,7 +63,9 @@ class _ClasseScreenState extends State<ClasseScreen> {
           ),
           const SizedBox(height: 8),
           DropdownButtonFormField<String>(
-            value: values['codDept'] as String?,
+            value: _depts.any((d) => d.codDept == values['codDept'])
+                ? values['codDept'] as String?
+                : null,
             decoration: const InputDecoration(labelText: 'Departement'),
             items: _depts
                 .map(
