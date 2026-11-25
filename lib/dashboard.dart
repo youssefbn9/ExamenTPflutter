@@ -12,7 +12,6 @@ import 'screens/top_absences_matieres_screen.dart';
 import 'screens/totaux_absences_screen.dart';
 import 'screens/user_screen.dart';
 
-// Tableau de bord principal avec tiroir de navigation
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
 

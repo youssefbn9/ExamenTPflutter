@@ -122,14 +122,14 @@ class ApiService {
     return MoyenneBulletin.fromJson(data as Map<String, dynamic>);
   }
 
-  // Question 1 Examen TP : Moyennes de tous les etudiants d'une classe donnee
+  // Question 1 Examen
   static Future<List<EtudiantMoyenne>> getMoyennesClasse(String codClass) =>
       getList(
         '/notes/moyennes-classe/${Uri.encodeComponent(codClass)}',
         EtudiantMoyenne.fromJson,
       );
 
-  // Question 2 Examen TP : Top 3 des modules avec le plus d'heures d'absences cumulees
+  // Question 2 Examen
   static Future<List<TopMatiereAbsence>> getTop3MatieresAbsences() =>
       getList('/absences/top3-matieres', TopMatiereAbsence.fromJson);
 
