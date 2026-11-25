@@ -80,6 +80,22 @@ public class AbsenceController {
         return result;
     }
 
+    // Top 3 modules avec le plus d'heures d'absences cumulees (Question 2 Examen TP)
+    @GetMapping("/top3-matieres")
+    public List<Map<String, Object>> getTop3Matieres() {
+        List<Object[]> rows = absenceRepository.findTopMatieresAbsences(
+                org.springframework.data.domain.PageRequest.of(0, 3));
+        List<Map<String, Object>> result = new ArrayList<>();
+        for (Object[] row : rows) {
+            Map<String, Object> item = new LinkedHashMap<>();
+            item.put("codMat", row[0]);
+            item.put("intMat", row[1]);
+            item.put("totalNha", row[2] != null ? ((Number) row[2]).doubleValue() : 0.0);
+            result.add(item);
+        }
+        return result;
+    }
+
     private void resolveRelations(Absence absence) {
         if (absence.getMatiere() != null && absence.getMatiere().getCodMat() != null) {
             matiereRepository.findById(absence.getMatiere().getCodMat()).ifPresent(absence::setMatiere);

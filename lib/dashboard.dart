@@ -5,8 +5,10 @@ import 'screens/classe_screen.dart';
 import 'screens/departement_screen.dart';
 import 'screens/etudiant_screen.dart';
 import 'screens/matiere_screen.dart';
+import 'screens/moyennes_classe_screen.dart';
 import 'screens/moyennes_screen.dart';
 import 'screens/note_screen.dart';
+import 'screens/top_absences_matieres_screen.dart';
 import 'screens/totaux_absences_screen.dart';
 import 'screens/user_screen.dart';
 
@@ -116,6 +118,31 @@ class Dashboard extends StatelessWidget {
               'Moyennes',
               const MoyennesScreen(),
             ),
+            const Divider(),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+              child: Text(
+                'EXAMEN TP (DSI33)',
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.purple,
+                ),
+              ),
+            ),
+            _drawerItem(
+              context,
+              Icons.table_chart,
+              'Examen: Moyennes classe',
+              const MoyennesClasseScreen(),
+            ),
+            _drawerItem(
+              context,
+              Icons.leaderboard,
+              'Examen: Top 3 absences',
+              const TopAbsencesMatieresScreen(),
+            ),
+            const Divider(),
             _drawerItem(
               context,
               Icons.person,

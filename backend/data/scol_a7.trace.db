@@ -1,0 +1,4 @@
+2026-11-11 21:06:17 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Erreur de syntaxe dans l'instruction SQL "[*]USERS"; attendu "UPDATE, USE"
+Syntax error in SQL statement "[*]USERS"; expected "UPDATE, USE"; SQL statement:
+USERS [42001-214]

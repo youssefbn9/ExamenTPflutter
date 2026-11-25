@@ -6,8 +6,10 @@ import 'models/class_mat.dart';
 import 'models/classe.dart';
 import 'models/departement.dart';
 import 'models/etudiant.dart';
+import 'models/etudiant_moyenne.dart';
 import 'models/matiere.dart';
 import 'models/note.dart';
+import 'models/top_matiere_absence.dart';
 import 'user.dart';
 
 // Service API REST generique pour communiquer avec Spring Boot
@@ -119,6 +121,17 @@ class ApiService {
     final data = await getJson('/notes/moyennes/${Uri.encodeComponent(nce)}');
     return MoyenneBulletin.fromJson(data as Map<String, dynamic>);
   }
+
+  // Question 1 Examen TP : Moyennes de tous les etudiants d'une classe donnee
+  static Future<List<EtudiantMoyenne>> getMoyennesClasse(String codClass) =>
+      getList(
+        '/notes/moyennes-classe/${Uri.encodeComponent(codClass)}',
+        EtudiantMoyenne.fromJson,
+      );
+
+  // Question 2 Examen TP : Top 3 des modules avec le plus d'heures d'absences cumulees
+  static Future<List<TopMatiereAbsence>> getTop3MatieresAbsences() =>
+      getList('/absences/top3-matieres', TopMatiereAbsence.fromJson);
 
   static Future<List<User>> getUsers() => getList('/users', User.fromJson);
 }

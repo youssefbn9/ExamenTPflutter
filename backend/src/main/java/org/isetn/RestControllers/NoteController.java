@@ -119,6 +119,24 @@ public class NoteController {
         return result;
     }
 
+    // Moyennes de tous les etudiants d'une classe donnee (Question 1 Examen TP)
+    @GetMapping("/moyennes-classe/{codClass}")
+    public List<Map<String, Object>> getMoyennesClasse(@PathVariable String codClass) {
+        List<Etudiant> etudiants = etudiantRepository.findByClasseCodClass(codClass);
+        List<Map<String, Object>> result = new ArrayList<>();
+
+        for (Etudiant etudiant : etudiants) {
+            Map<String, Object> moyData = getMoyennes(etudiant.getNce());
+            Map<String, Object> item = new LinkedHashMap<>();
+            item.put("nce", etudiant.getNce());
+            item.put("nom", etudiant.getNom());
+            item.put("prenom", etudiant.getPrenom());
+            item.put("moyenne", moyData.get("moyenneGenerale"));
+            result.add(item);
+        }
+        return result;
+    }
+
     // Formule unique de moyenne: module TP si tp1 ou tp2 non nul, sinon cours (DS + Examen) / 2
     private double calculerMoyenneMatiere(Note note) {
         boolean isTp = note.getTp1() != null || note.getTp2() != null;

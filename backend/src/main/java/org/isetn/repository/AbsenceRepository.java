@@ -12,5 +12,8 @@ public interface AbsenceRepository extends JpaRepository<Absence, Long> {
 
     @Query("SELECT a.matiere.codMat, SUM(a.nha) FROM Absence a WHERE a.etudiant.nce = :nce GROUP BY a.matiere.codMat ORDER BY a.matiere.codMat")
     List<Object[]> findTotauxByNce(@Param("nce") String nce);
+
+    @Query("SELECT a.matiere.codMat, a.matiere.intMat, SUM(a.nha) FROM Absence a GROUP BY a.matiere.codMat, a.matiere.intMat ORDER BY SUM(a.nha) DESC")
+    List<Object[]> findTopMatieresAbsences(org.springframework.data.domain.Pageable pageable);
 }
 
